@@ -1,0 +1,50 @@
+# Basic parsing and simplification
+5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0
+3 * X^0 + 2 * X^1 = 0
+1 * X^2 = 1 * X^2
+
+# Reduction to standard form
+2 * X^2 + 3 * X^1 - 5 * X^0 = 2 * X^2
+4 * X^1 = 2 * X^1 + 1 * X^1 + 1 * X^1
+
+# Degree identification
+4 * X^2 = 0
+7 * X^0 = 0
+0 * X^0 = 0
+
+# Solving linear equations
+2 * X^1 - 4 = 0
+-1 * X^1 + 5 = 0
+X^1 - 7 = 0
+
+# Solving quadratic equations (real solutions)
+1 * X^2 - 3 * X^1 + 2 = 0
+X^2 - 4 = 0
+1 * X^2 - 5 * X^0 = 0
+
+# Discriminant = 0
+1 * X^2 - 2 * X^1 + 1 = 0
+0.5 * X^2 + X^1 + 0.5 = 0
+
+# Discriminant < 0 (complex solutions)
+1 * X^2 + 2 * X^1 + 5 = 0
+X^2 + 4 * X^1 + 8 = 0
+
+# No solution / Infinite solutions
+0 * X^0 = 5
+0 * X^0 = 0
+
+# Negative coefficients and fractions
+-1 * X^2 + 0.5 * X^1 - 3.5 = 0
+0.25 * X^2 - 0.5 * X^1 + 0.25 = 0
+-0.2 * X^2 + 1.6 * X^1 - 3.2 = 0
+
+# Whitespace / formatting edge cases
+   3*X^2+    2*X^1   =     5*X^0
+\t3 *\tX^2 \n + 1*X^0 =0
+  2  *  X^1   +   4 *X^0   =   0
+
+# Invalid input tests
+This is not math
+3 * X^2 + + + = 0
+X^2 + ? = 0
