@@ -12,9 +12,62 @@ Input: 3 * X^0 + 2 * X^1 = 0
 Reduced form: 3.0 * X^0 + 2.0 * X^1 = 0
 Polynomial degree: 1
 The solution is:
--1.5
+-1.500000
 ------------------------
 Input: 1 * X^2 = 1 * X^2
-Reduced form: 0.0 * X^2 = 0
+Reduced form: = 0
+Any real number is a solution.
+------------------------
+Input: 2 * X^2 + 3 * X^1 - 5 * X^0 = 2 * X^2
+Reduced form: -5.0 * X^0 + 3.0 * X^1 = 0
+Polynomial degree: 1
+The solution is:
+1.666667
+------------------------
+Input: 4 * X^1 = 2 * X^1 + 1 * X^1 + 1 * X^1
+Reduced form: = 0
+Any real number is a solution.
+------------------------
+Input: 4 * X^2 = 0
+Reduced form: 4.0 * X^2 = 0
 Polynomial degree: 2
+The solution is:
+0
+------------------------
+Input: 7 * X^0 = 0
+Reduced form: 7.0 * X^0 = 0
+No solution.
+------------------------
+Input: 0 * X^0 = 0
+Reduced form: = 0
+Any real number is a solution.
+------------------------
+Input: 1 * X^2 - 5 * X^0 = 0
+Reduced form: -5.0 * X^0 + 1.0 * X^2 = 0
+Polynomial degree: 2
+The solutions are:
++√-5.0
+-√-5.0
+------------------------
+Input: 0.5 * X^2 + X^1 + 0.5 = 0
+Reduced form: 0.5 * X^2 = 0
+Polynomial degree: 2
+The solution is:
+0
+------------------------
+Input: 0 * X^0 = 5
+Invalid input: check term syntax.
+------------------------
+Input: 0 * X^0 = 0
+Reduced form: = 0
+Any real number is a solution.
+------------------------
+Input: This is not math
+Invalid input: no "=" sign found.
+------------------------
+Input: 3 * X^2 + + + = 0
+Reduced form: 3.0 * X^2 = 0
+Polynomial degree: 2
+The solution is:
+0
 ------------------------

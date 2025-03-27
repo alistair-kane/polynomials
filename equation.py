@@ -42,30 +42,33 @@ class Equation:
 	def build_equation_string(self, terms):
 		output = ""
 		for i, term in enumerate(terms):
-			if term.coefficient < 0:
-				if i == 0:
-					output += '-'
+			if term.coefficient != 0:
+				if term.coefficient < 0:
+					if i == 0:
+						output += '-'
+					else:
+						output += "- "
 				else:
-					output += "- "
-			else:
-				if i > 0:
-					output += "+ "
-			output += f'{str(term)} '
+					if i > 0:
+						output += "+ "
+				output += f'{str(term)} '
 		return output
 
-	def print_highest_degree(self):
-		for term in self.terms:
+	def find_highest_degree(self):
+		for term in self.reduced_terms:
 			if term.degree > self.degree_max:
 				self.degree_max = term.degree
-		if self.degree_max > 0:
-			print(f"Polynomial degree: {self.degree_max}")
 
 	def reduce(self):
 		term_map = {}
 		for term in self.terms:
 			key = (term.variable, term.degree)
 			if key in term_map:
-				term_map[key].coefficient += term.coefficient
+				sum = term_map[key].coefficient + term.coefficient
+				if sum != 0:
+					term_map[key].coefficient = sum
+				else:
+					del term_map[key]
 			else:
 				term_map[key] = term
 		self.reduced_terms = sorted(term_map.values(), key=lambda term: term.degree)
@@ -84,9 +87,16 @@ class Equation:
 		if a == 0:
 			print("No solution.")
 		else:
-			print(f"The solution is:\n{-b / a}")
+			print(f"The solution is:\n{(-b / a):.6f}")
 
 	def solve_quadratic(self):
+		if len(self.reduced_terms) == 1:
+			print("The solution is:\n0")
+			return
+		elif len(self.reduced_terms) == 2:
+			right_side = self.reduced_terms[0].coefficient
+			print(f'The solutions are:\n+√{right_side}\n-√{right_side}')
+			return
 		a = self.reduced_terms[2].coefficient
 		b = self.reduced_terms[1].coefficient
 		c = self.reduced_terms[0].coefficient
@@ -104,7 +114,12 @@ class Equation:
 			print(f"Discriminant is strictly negative, the two complex solutions are:\n{real} + {imaginary}i\n{real} - {imaginary}i")
 
 	def solve(self):
-		self.print_highest_degree()
+		self.find_highest_degree()
+		if self.degree_max > 0:
+			print(f"Polynomial degree: {self.degree_max}")
+		if not self.reduced_terms:
+			print("Any real number is a solution.")
+			return
 		if self.degree_max < 0:
 			print("Input error, check polynomial syntax.")
 		elif self.degree_max == 0:
