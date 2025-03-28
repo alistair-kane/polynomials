@@ -39,7 +39,7 @@ class Equation:
 				self.terms.append((Term(-float(coefficient), variable, int(degree))))
 		return True
 
-	def build_equation_string(self, terms):
+	def build_equation_string(self, terms) -> str:
 		output = ""
 		for i, term in enumerate(terms):
 			if term.coefficient != 0:
